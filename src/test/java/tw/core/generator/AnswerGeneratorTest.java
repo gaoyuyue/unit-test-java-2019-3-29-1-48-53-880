@@ -1,6 +1,8 @@
 package tw.core.generator;
 
+import org.junit.Assert;
 import org.junit.Test;
+import tw.core.Answer;
 import tw.core.exception.OutOfRangeAnswerException;
 
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -17,6 +19,15 @@ public class AnswerGeneratorTest {
         when(randomIntGenerator.generateNums(anyInt(), anyInt())).thenReturn("2 6 9 11");
         AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
         answerGenerator.generate();
+    }
+
+    @Test
+    public void should_return_random_number() throws OutOfRangeAnswerException {
+        RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
+        when(randomIntGenerator.generateNums(anyInt(), anyInt())).thenReturn("1 2 3 4");
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
+        Answer answer = answerGenerator.generate();
+        Assert.assertNotNull(answer);
     }
 }
 

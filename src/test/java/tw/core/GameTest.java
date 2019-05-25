@@ -72,4 +72,12 @@ public class GameTest {
         game.guess(Answer.createAnswer("5 4 7 3"));
         Assert.assertEquals("continue", game.checkStatus());
     }
+
+    @Test
+    public void should_return_false_when_correct_guess() {
+        game.guess(Answer.createAnswer("4 5 6 7"));
+        game.guess(Answer.createAnswer("2 3 4 5"));
+        game.guess(Answer.createAnswer("1 2 3 4"));
+        Assert.assertFalse(game.checkCoutinue());
+    }
 }

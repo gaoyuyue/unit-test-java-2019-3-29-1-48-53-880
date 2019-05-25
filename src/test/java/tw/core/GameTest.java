@@ -47,4 +47,10 @@ public class GameTest {
         Assert.assertEquals("1 3 5 8", guessResults.get(2).getInputAnswer().toString());
     }
 
+    @Test
+    public void should_get_the_success_status_when_guess_and_input_is_correct() {
+        game.guess(Answer.createAnswer("1 6 2 8"));
+        game.guess(Answer.createAnswer("1 2 3 4"));
+        Assert.assertEquals("success", game.checkStatus());
+    }
 }

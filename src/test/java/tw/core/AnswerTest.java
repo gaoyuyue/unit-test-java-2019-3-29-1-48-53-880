@@ -18,4 +18,10 @@ public class AnswerTest {
         Answer answer = Answer.createAnswer("1 2 3 4");
         answer.validate();
     }
+
+    @Test(expected = OutOfRangeAnswerException.class)
+    public void should_throw_out_of_range_answer_exception_when_answer_have_number_more_than_10() throws OutOfRangeAnswerException {
+        Answer answer = Answer.createAnswer("1 22 3 4");
+        answer.validate();
+    }
 }

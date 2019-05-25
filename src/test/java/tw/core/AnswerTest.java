@@ -45,4 +45,11 @@ public class AnswerTest {
         Record record = defaultAnswer.check(defaultAnswer);
         Assert.assertEquals("4A0B", record.getValue());
     }
+
+    @Test
+    public void should_return_1A1B_when_has_1_number_is_correct_and_1_number_position_is_not_correct() {
+        Answer answer = Answer.createAnswer("1 9 2 8");
+        Record record = defaultAnswer.check(answer);
+        Assert.assertEquals("1A1B", record.getValue());
+    }
 }

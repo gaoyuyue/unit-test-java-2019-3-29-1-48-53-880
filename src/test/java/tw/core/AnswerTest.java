@@ -40,5 +40,9 @@ public class AnswerTest {
         Assert.assertEquals("0A0B", record.getValue());
     }
 
-
+    @Test
+    public void should_return_4A0B_when_all_number_is_correct() {
+        Record record = defaultAnswer.check(defaultAnswer);
+        Assert.assertEquals("4A0B", record.getValue());
+    }
 }

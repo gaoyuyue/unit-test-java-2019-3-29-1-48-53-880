@@ -31,4 +31,9 @@ public class InputValidatorTest {
     public void should_return_true_when_input_number_string_count_is_4_and_all_number_is_less_than_10() {
         Assert.assertTrue(inputValidator.validate("2 3 4 5"));
     }
+
+    @Test(expected = NumberFormatException.class)
+    public void should_throw_exception_when_input_string_is_not_number() {
+        inputValidator.validate("a b c d");
+    }
 }

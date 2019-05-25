@@ -64,4 +64,12 @@ public class GameTest {
         game.guess(Answer.createAnswer("9 6 7 5"));
         Assert.assertEquals("fail", game.checkStatus());
     }
+
+    @Test
+    public void should_get_the_continue_status_when_guess_action_count_less_than_6() {
+        game.guess(Answer.createAnswer("2 1 3 4"));
+        game.guess(Answer.createAnswer("7 1 2 9"));
+        game.guess(Answer.createAnswer("5 4 7 3"));
+        Assert.assertEquals("continue", game.checkStatus());
+    }
 }

@@ -15,4 +15,10 @@ public class InputValidatorTest {
         Assert.assertFalse(inputValidator.validate("1 2 3 4 5"));
         Assert.assertFalse(inputValidator.validate(""));
     }
+
+    @Test
+    public void should_return_false_when_input_number_string_count_is_4_but_has_number_is_more_than_10() {
+        InputValidator inputValidator = new InputValidator();
+        Assert.assertFalse(inputValidator.validate("1 2 3 11"));
+    }
 }

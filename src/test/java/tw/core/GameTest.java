@@ -53,4 +53,15 @@ public class GameTest {
         game.guess(Answer.createAnswer("1 2 3 4"));
         Assert.assertEquals("success", game.checkStatus());
     }
+
+    @Test
+    public void should_get_the_fail_status_when_guess_action_count_over_or_equal_6() {
+        game.guess(Answer.createAnswer("1 7 4 2"));
+        game.guess(Answer.createAnswer("9 2 1 4"));
+        game.guess(Answer.createAnswer("5 6 2 1"));
+        game.guess(Answer.createAnswer("8 1 4 9"));
+        game.guess(Answer.createAnswer("1 3 4 2"));
+        game.guess(Answer.createAnswer("9 6 7 5"));
+        Assert.assertEquals("fail", game.checkStatus());
+    }
 }

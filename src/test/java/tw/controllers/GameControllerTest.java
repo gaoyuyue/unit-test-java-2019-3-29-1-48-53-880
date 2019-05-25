@@ -59,4 +59,13 @@ public class GameControllerTest {
         verify(gameView).showGuessHistory(anyList());
         verify(gameView).showGameStatus(anyString());
     }
+
+    @Test
+    public void should_display_result_when_game_fail() throws IOException {
+        when(inputCommand.input()).thenReturn(incorrectAnswer);
+        when(game.checkStatus()).thenReturn("");
+        when(game.checkCoutinue()).thenReturn(false);
+        gameController.play(inputCommand);
+        verify(gameView).showGameStatus(anyString());
+    }
 }

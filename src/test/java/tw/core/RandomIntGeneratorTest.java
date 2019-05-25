@@ -22,7 +22,6 @@ public class RandomIntGeneratorTest {
         Assert.assertNotNull(nums);
     }
 
-
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_illegal_argument_exception_when_digitmax_less_than_numbers_of_need() {
         randomIntGenerator.generateNums(4, 6);
